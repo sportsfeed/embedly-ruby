@@ -13,7 +13,7 @@ module Embedly
           Net::HTTP
         end
 
-        http_class.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http_class.start(uri.host, uri.port) do |http|
           http.read_timeout = options[:timeout]
           http.get([uri.path, uri.query].join('?'), options[:headers])
         end
